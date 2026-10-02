@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Habit Heatmap</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <header>
+            <h1>🌱 Habit Heatmap</h1>
+
+            <p>
+                Build small habits. Watch your consistency grow.
+            </p>
+        </header>
+
+
+        <section class="habit-section">
+
+            <div class="add-habit">
+
+                <input
+                    type="text"
+                    id="habitInput"
+                    placeholder="Enter a new habit..."
+                >
+
+                <button onclick="addHabit()">
+                    + Add Habit
+                </button>
+
+            </div>
+
+            <p id="error"></p>
+
+            <div id="habitList"></div>
+
+        </section>
+
+
+        <section class="calendar-section">
+
+            <div class="calendar-header">
+
+                <button onclick="previousMonth()">
+                    ←
+                </button>
+
+                <div>
+                    <h2 id="monthYear"></h2>
+
+                    <button
+                        class="today-button"
+                        onclick="goToToday()"
+                    >
+                        Today
+                    </button>
+                </div>
+
+                <button onclick="nextMonth()">
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <div
+                class="calendar"
+                id="calendar"
+            ></div>
+
+
+            <div class="legend">
+
+                <span>Less</span>
+
+                <div class="legend-box level-0"></div>
+                <div class="legend-box level-1"></div>
+                <div class="legend-box level-2"></div>
+                <div class="legend-box level-3"></div>
+                <div class="legend-box level-4"></div>
+
+                <span>More</span>
+
+            </div>
+
+        </section>
+
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <span class="stat-icon">🌱</span>
+
+                <div>
+                    <strong id="totalHabits">0</strong>
+                    <p>Total Habits</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">✅</span>
+
+                <div>
+                    <strong id="completedCount">0</strong>
+                    <p>Completed</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">📈</span>
+
+                <div>
+                    <strong id="completionRate">0%</strong>
+                    <p>Completion</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div
+        class="modal"
+        id="habitModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-button"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+            <h2 id="selectedDate"></h2>
+
+            <p class="modal-subtitle">
+                Which habits did you complete?
+            </p>
+
+            <div id="habitChecklist"></div>
+
+            <button
+                class="save-button"
+                onclick="saveDay()"
+            >
+                Save Progress
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
