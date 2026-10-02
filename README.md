@@ -47,6 +47,7 @@ Habit-Heatmap/
 ├── index.html
 ├── style.css
 └── script.js
+```
 
 ## 🔮 Future Improvements
 
